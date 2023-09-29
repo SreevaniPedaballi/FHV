@@ -1,0 +1,11 @@
+QUESTION: What else would you do if you had more time?
+------------------------------------------------------------------
+Answer:
+----------
+1) I will perform a detailed functional requirement gathering from the business team
+
+2) Based on the requirements and budget constraints, I will design a better solution
+
+3) I will perform data quality checks, cleaning, and formatting if needed
+
+4) I will conduct end-to-end testing

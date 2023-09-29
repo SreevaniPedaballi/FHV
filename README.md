@@ -1,5 +1,5 @@
 
-Plaese find the submission details as refered in answer section below:
+Plaese find the submission details below:
 ---------------------------------------------------------------------
 1) Provide a Git repository link or email the code fles in a ZIP archive.
 Answer: https://github.com/SreevaniPedaballi/FHV/blob/main/Submission%20Instructon%201--Source%20Code/src/fhv-publisher.py

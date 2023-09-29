@@ -23,7 +23,7 @@ def fhv_lambda_handler(event, context):
             # Generate a unique key for each data snapshot
             s3_key= "{}/year={}/month={}/day={}/{}".format(s3_prefix,current_datetime.strftime("%Y"),current_datetime.strftime("%m"),current_datetime.strftime("%d"),"fhv_data.json")
             
-            # Upload data to S3
+            # Upload data to S3 in JSON file format, but consider replacing it with Parquet format later to optimize Athena query performance
             s3_client = boto3.client('s3')
             s3_client.put_object(
                 Bucket=s3_bucket_name,

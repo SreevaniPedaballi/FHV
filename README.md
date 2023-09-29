@@ -1,5 +1,5 @@
-Plaese find the submission details as refered in answer section below:
----------------------------------------------------------------------
+Plaese find the submission details below:
+-----------------------------------------
 1. Provide a Git repository link or email the code fles in a ZIP archive.
 Answer: Please refer "Submission Instructon 1--Source Code" folder
 2. Provide a SQL query that will answer a queston of your choosing about the data. (Examples: What is the median

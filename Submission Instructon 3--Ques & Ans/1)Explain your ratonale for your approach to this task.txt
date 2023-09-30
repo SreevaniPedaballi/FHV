@@ -4,13 +4,13 @@ Answer:
 ----------
 Data Ingestion & Data Access Solution:
 ------------------------------------
-1).AWS Lambda Function retrieves data from the NYC FHV API and stores it in your S3 bucket. Schedule this Lambda to run periodically using Amazon CloudWatch Events to run on daily after 7PM to ingest new data incrementally.
+By following below steps, We can build a cost-effective and scalable data solution on AWS that ingests data incrementally, stores it in S3, and makes it queryable through SQL using Amazon Athena.
+
+1)AWS Lambda function retrieves data from the NYC FHV API and stores the data in S3 bucket.We can schedule this Lambda to run periodically using Amazon CloudWatch Events to run on daily after 7PM to ingest new data incrementally.
 2)In order to query the data we need to make sure the data and metadata.In this case, data is stored in s3 and we need to register the metadata in glue data catalog.Set up an AWS Glue Crawler to automatically discover the schema of the ingested data in S3 and create a Glue Data Catalog. This will enable Athena to query the data effectively.
-3)Create a table in Athena that references the S3 data location where the data is stored.Now the data and meta data configuration is ready and 
-we can  query this data using SQL via the Athena console or any SQL client that supports Athena.
-4)Use AWS IAM to manage permissions for accessing S3, Lambda, Glue, and Athena. Ensure that users and applications have the necessary permissions to query the data.
+3)Create a table in Athena that references the S3 data location where the data is stored.Now the data and meta data configuration is ready and we can  query this data using SQL via the Athena console or any SQL client that supports Athena.
+4)Use AWS IAM to manage permissions for accessing S3, Lambda, Glue, and Athena.Ensure that users and applications have the necessary permissions to query the data.
 5)Set up CloudWatch Alarms for monitoring Lambda execution and other resources. Keep an eye on your AWS costs, as Athena charges for the data scanned during queries.
-By following these steps, We can build a cost-effective and scalable data solution on AWS that ingests data incrementally, stores it in S3, and makes it queryable through SQL using Amazon Athena.
 
 Cost Considerations:
 -------------------
@@ -21,9 +21,9 @@ Initially it would be better to chosse S3 storage class options like below,
 --->S3 Glacier- archiving if long-term storage is required.(archiving data more than a year)
 NOTE:clean up unnecessary data in your S3 buckets. Data that is no longer needed should be deleted to save on storage costs.
 
-2)Athena charges based on the amount of data scanned by queries, so make sure the below optimization techniques to redduce the cost,
+2)Athena charges based on the amount of data scanned by queries, so we have to make sure the below optimization techniques to reduce the cost,
 ---> Store the incremental data in S3 using appropriate partitions.We are storing the data in the form of year/month /day format.
  This can significantly reduce the amount of data scanned when running queries.
----> It would be good to use Parquet or ORC, which are columnar and highly compressed, reducing the amount of data scanned during queries.In our case,we are storing it in Parquet file format.
+---> It would be good to use Parquet or ORC, which are columnar and highly compressed, reducing the amount of data scanned during queries.In our case,we are storing json data but we should convert the format into Parquet later.
 --->Register metadata in AWS Glue Data Catalog.This can improve query performance and reduce costs by reducing the need to scan data to infer schema.
 
